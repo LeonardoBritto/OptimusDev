@@ -13,7 +13,7 @@ object ViewPrincipal: TViewPrincipal
   Font.Name = 'Segoe UI'
   Font.Style = []
   Menu = MainMenu1
-  Position = poDesigned
+  Position = poScreenCenter
   TextHeight = 15
   object Panel1: TPanel
     Left = 0
@@ -23,7 +23,6 @@ object ViewPrincipal: TViewPrincipal
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitTop = 550
     object Label1: TLabel
       Left = 220
       Top = 0
