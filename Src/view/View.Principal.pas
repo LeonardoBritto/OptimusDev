@@ -25,6 +25,8 @@ type
     Configuraes2: TMenuItem;
     Panel1: TPanel;
     Label1: TLabel;
+    procedure Cidades1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -37,5 +39,23 @@ var
 implementation
 
 {$R *.dfm}
+
+uses
+  View.Cidades.Buscar;
+
+procedure TViewPrincipal.Cidades1Click(Sender: TObject);
+begin
+  ViewCidadesBuscar := TViewCidadesBuscar.Create(nil);
+  try
+    ViewCidadesBuscar.ShowModal;
+  finally
+    FreeAndNil(ViewCidadesBuscar);
+  end;
+end;
+
+procedure TViewPrincipal.FormCreate(Sender: TObject);
+begin
+  ReportMemoryLeaksOnShutdown := True;
+end;
 
 end.

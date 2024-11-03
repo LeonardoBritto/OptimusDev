@@ -142,6 +142,14 @@
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
+        <DCCReference Include="Src\View\Herancas\View.Herancas.Buscar.pas">
+            <Form>ViewHerancasBuscar</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Src\View\Cidades\View.Cidades.Buscar.pas">
+            <Form>ViewCidadesBuscar</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

@@ -12,10 +12,18 @@ type
   TModelCidadesDM = class(TDataModule)
     QCidadesCadastro: TFDQuery;
     QCidadesBusca: TFDQuery;
+    QCidadesCadastroCODIGO: TIntegerField;
+    QCidadesCadastroNOME: TStringField;
+    QCidadesCadastroUF: TStringField;
+    QCidadesCadastroCODIGO_IBGE: TIntegerField;
+    QCidadesBuscaCODIGO: TIntegerField;
+    QCidadesBuscaNOME: TStringField;
+    QCidadesBuscaUF: TStringField;
+    QCidadesBuscaCODIGO_IBGE: TIntegerField;
   private
     { Private declarations }
   public
-    { Public declarations }
+    procedure CidadesBuscar(const ACondicao: string);
   end;
 
 var
@@ -26,5 +34,16 @@ implementation
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
 {$R *.dfm}
+
+{ TModelCidadesDM }
+
+procedure TModelCidadesDM.CidadesBuscar(const ACondicao: string);
+begin
+  QCidadesBusca.Close;
+  QCidadesBusca.SQL.Clear;
+  QCidadesBusca.SQL.Add('select * from cidades');
+  QCidadesBusca.SQL.Add(ACondicao);
+  QCidadesBusca.Open;
+end;
 
 end.

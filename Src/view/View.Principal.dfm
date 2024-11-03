@@ -14,6 +14,7 @@ object ViewPrincipal: TViewPrincipal
   Font.Style = []
   Menu = MainMenu1
   Position = poScreenCenter
+  OnCreate = FormCreate
   TextHeight = 15
   object Panel1: TPanel
     Left = 0
@@ -179,6 +180,7 @@ object ViewPrincipal: TViewPrincipal
           0000000000000000000000000000000000000000000000000000000000000000
           000000000000}
         Caption = 'Cidades'
+        OnClick = Cidades1Click
       end
       object Cidades2: TMenuItem
         Caption = 'Empresa'
