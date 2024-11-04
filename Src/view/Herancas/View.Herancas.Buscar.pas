@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Buttons,
-  Data.DB, Vcl.Grids, Vcl.DBGrids;
+  Data.DB, Vcl.Grids, Vcl.DBGrids, Vcl.Menus;
 
 type
   TViewHerancasBuscar = class(TForm)
@@ -22,6 +22,11 @@ type
     pnTotal: TPanel;
     lblTotal: TLabel;
     DataSource: TDataSource;
+    btnAlterar: TBitBtn;
+    PopupMenu: TPopupMenu;
+    Atualizar1: TMenuItem;
+    Atualizar2: TMenuItem;
+    Excluir1: TMenuItem;
     procedure btnFecharClick(Sender: TObject);
     procedure btnSelecionarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -35,6 +40,9 @@ type
     procedure DBGridDrawColumnCell(Sender: TObject; const Rect: TRect;
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
     procedure rdGroupFiltrosClick(Sender: TObject);
+    procedure btnAlterarClick(Sender: TObject);
+    procedure Atualizar1Click(Sender: TObject);
+    procedure Excluir1Click(Sender: TObject);
   private
   protected
     procedure BuscarDados; virtual;
@@ -48,6 +56,17 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TViewHerancasBuscar.Atualizar1Click(Sender: TObject);
+begin
+  Self.BuscarDados;
+end;
+
+procedure TViewHerancasBuscar.btnAlterarClick(Sender: TObject);
+begin
+  if DataSource.DataSet.IsEmpty then
+    raise Exception.Create('Selecione um registro!');
+end;
 
 procedure TViewHerancasBuscar.btnFecharClick(Sender: TObject);
 begin
@@ -113,6 +132,19 @@ begin
     btnSelecionar.Click;
 end;
 
+procedure TViewHerancasBuscar.Excluir1Click(Sender: TObject);
+begin
+  if DataSource.DataSet.IsEmpty then
+    raise Exception.Create('Selecione um registro!');
+
+  if (Application.MessageBox('Confirma exclusão deste registro?','Confirma exclusão?',
+      MB_YESNO + MB_ICONQUESTION + MB_DEFBUTTON2) <> IDYES) then
+    Exit;
+
+  DataSource.DataSet.Delete;
+  Self.BuscarDados;
+end;
+
 procedure TViewHerancasBuscar.FormKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
@@ -123,6 +155,12 @@ begin
         Key := 0;
     end;
     VK_ESCAPE: btnFechar.Click;
+  end;
+
+  if (Key in [VK_F1..VK_F12]) then
+  begin
+    if (rdGroupFiltros.Items.Count >= Key - VK_F1) then
+      rdGroupFiltros.ItemIndex := Key - VK_F1;
   end;
 end;
 

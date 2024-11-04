@@ -26,13 +26,15 @@ implementation
 
 procedure TViewCidadesBuscar.BuscarDados;
 var
-  LCondicao: String;
+  LStrBuscar: string;
+  LCondicao: string;
 begin
+  LStrBuscar := QuotedStr('%' + edtBuscar.Text + '%').ToUpper;
   LCondicao := '';
   case rdGroupFiltros.ItemIndex of
-    0: LCondicao := 'where(codigo like ' + QuotedStr('%' + edtBuscar.Text + '%') + ')';
-    1: LCondicao := 'where(nome like ' + QuotedStr('%' + edtBuscar.Text + '%') + ')';
-    2: LCondicao := 'where(uf like ' + QuotedStr('%' + edtBuscar.Text + '%') + ')';
+    0: LCondicao := 'where(codigo like ' + LStrBuscar + ')';
+    1: LCondicao := 'where(upper(nome) like ' + LStrBuscar + ')';
+    2: LCondicao := 'where(upper(uf) like ' + LStrBuscar + ')';
   end;
 
   ModelCidadesDM.CidadesBuscar(LCondicao);
