@@ -43,9 +43,11 @@ type
     procedure btnAlterarClick(Sender: TObject);
     procedure Atualizar1Click(Sender: TObject);
     procedure Excluir1Click(Sender: TObject);
+    procedure btnCadastrarClick(Sender: TObject);
   private
   protected
     procedure BuscarDados; virtual;
+    procedure ChamarTelaCadastrar(const ACodigo: Integer = 0); virtual; abstract;
   public
     { Public declarations }
   end;
@@ -66,6 +68,13 @@ procedure TViewHerancasBuscar.btnAlterarClick(Sender: TObject);
 begin
   if DataSource.DataSet.IsEmpty then
     raise Exception.Create('Selecione um registro!');
+
+  Self.ChamarTelaCadastrar(DataSource.DataSet.FieldByName('codigo').AsInteger);
+end;
+
+procedure TViewHerancasBuscar.btnCadastrarClick(Sender: TObject);
+begin
+  Self.ChamarTelaCadastrar;
 end;
 
 procedure TViewHerancasBuscar.btnFecharClick(Sender: TObject);

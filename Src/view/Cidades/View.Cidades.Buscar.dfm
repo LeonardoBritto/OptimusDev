@@ -46,48 +46,12 @@ inherited ViewCidadesBuscar: TViewCidadesBuscar
   inherited pnRodape: TPanel
     StyleElements = [seFont, seClient, seBorder]
     inherited rdGroupFiltros: TRadioGroup
-      Width = 422
-      Align = alClient
       Columns = 3
       ItemIndex = 1
       Items.Strings = (
         'C'#243'digo (F1)'
         'Nome (F2)'
         'UF (F3)')
-    end
-    inherited btnFechar: TBitBtn
-      Left = 574
-      Top = 10
-      Width = 75
-      Height = 37
-      Margins.Top = 10
-      Margins.Bottom = 3
-      ExplicitLeft = 574
-      ExplicitTop = 8
-      ExplicitWidth = 75
-    end
-    inherited btnCadastrar: TBitBtn
-      Left = 422
-      Top = 10
-      Width = 75
-      Height = 37
-      Margins.Top = 10
-      Margins.Bottom = 3
-      Glyph.Data = {00000000}
-      ExplicitLeft = 346
-      ExplicitTop = 8
-      ExplicitWidth = 75
-    end
-    inherited btnSelecionar: TBitBtn
-      Left = 498
-      Top = 10
-      Width = 75
-      Height = 37
-      Margins.Top = 10
-      Margins.Bottom = 3
-      ExplicitLeft = 498
-      ExplicitTop = 8
-      ExplicitWidth = 75
     end
   end
   inherited pnTotal: TPanel

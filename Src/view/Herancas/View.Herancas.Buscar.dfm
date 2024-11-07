@@ -93,7 +93,6 @@ object ViewHerancasBuscar: TViewHerancasBuscar
       Caption = 'Buscar por:'
       TabOrder = 0
       OnClick = rdGroupFiltrosClick
-      ExplicitWidth = 325
     end
     object btnFechar: TBitBtn
       AlignWithMargins = True
@@ -108,9 +107,6 @@ object ViewHerancasBuscar: TViewHerancasBuscar
       Caption = 'Fechar'
       TabOrder = 2
       OnClick = btnFecharClick
-      ExplicitLeft = 569
-      ExplicitTop = 7
-      ExplicitHeight = 36
     end
     object btnCadastrar: TBitBtn
       AlignWithMargins = True
@@ -124,9 +120,7 @@ object ViewHerancasBuscar: TViewHerancasBuscar
       Align = alRight
       Caption = 'Cadastrar'
       TabOrder = 1
-      ExplicitLeft = 326
-      ExplicitTop = 7
-      ExplicitHeight = 36
+      OnClick = btnCadastrarClick
     end
     object btnSelecionar: TBitBtn
       AlignWithMargins = True
@@ -142,9 +136,6 @@ object ViewHerancasBuscar: TViewHerancasBuscar
       Layout = blGlyphRight
       TabOrder = 3
       OnClick = btnSelecionarClick
-      ExplicitLeft = 488
-      ExplicitTop = 7
-      ExplicitHeight = 36
     end
     object btnAlterar: TBitBtn
       AlignWithMargins = True
@@ -159,9 +150,6 @@ object ViewHerancasBuscar: TViewHerancasBuscar
       Caption = 'Alterar'
       TabOrder = 4
       OnClick = btnAlterarClick
-      ExplicitLeft = 407
-      ExplicitTop = 7
-      ExplicitHeight = 36
     end
   end
   object pnTotal: TPanel

@@ -150,6 +150,14 @@
             <Form>ViewCidadesBuscar</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Src\View\Herancas\View.Herancas.Cadastrar.pas">
+            <Form>ViewHerancasCadastrar</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Src\View\Cidades\View.Cidades.Cadastrar.pas">
+            <Form>ViewCidadesCadastrar</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

@@ -12,7 +12,6 @@ object ModelCidadesDM: TModelCidadesDM
       FieldName = 'CODIGO'
       Origin = 'CODIGO'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
     end
     object QCidadesCadastroNOME: TStringField
       DisplayLabel = 'Nome'
