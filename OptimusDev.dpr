@@ -8,7 +8,9 @@ uses
   View.Herancas.Buscar in 'Src\View\Herancas\View.Herancas.Buscar.pas' {ViewHerancasBuscar},
   View.Cidades.Buscar in 'Src\View\Cidades\View.Cidades.Buscar.pas' {ViewCidadesBuscar},
   View.Herancas.Cadastrar in 'Src\View\Herancas\View.Herancas.Cadastrar.pas' {ViewHerancasCadastrar},
-  View.Cidades.Cadastrar in 'Src\View\Cidades\View.Cidades.Cadastrar.pas' {ViewCidadesCadastrar};
+  View.Cidades.Cadastrar in 'Src\View\Cidades\View.Cidades.Cadastrar.pas' {ViewCidadesCadastrar},
+  Model.Pessoas.DM in 'Src\Model\Pessoas\Model.Pessoas.DM.pas' {ModelPessoasDM: TDataModule},
+  View.Pessoas.Buscar in 'Src\View\Pessoas\View.Pessoas.Buscar.pas' {ViewPessoasBuscar};
 
 {$R *.res}
 
@@ -18,5 +20,7 @@ begin
   Application.Title := 'OptimusDev - Sistema de Vendas';
   Application.CreateForm(TViewPrincipal, ViewPrincipal);
   Application.CreateForm(TModelConexaoDM, ModelConexaoDM);
+  Application.CreateForm(TModelPessoasDM, ModelPessoasDM);
+  Application.CreateForm(TViewPessoasBuscar, ViewPessoasBuscar);
   Application.Run;
 end.

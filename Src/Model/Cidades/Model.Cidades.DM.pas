@@ -47,7 +47,7 @@ begin
   QCidadesCadastro.SQL.Add('select * from cidades');
   QCidadesCadastro.SQL.Add('where codigo = :codigo');
   QCidadesCadastro.ParamByName('codigo').AsInteger := ACodCidade;
-  QCidadesCadastro.Open
+  QCidadesCadastro.Open;
 end;
 
 procedure TModelCidadesDM.CidadesBuscar(const ACondicao: string);
