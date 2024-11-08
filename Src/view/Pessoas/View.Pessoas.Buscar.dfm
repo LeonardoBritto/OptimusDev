@@ -9,17 +9,20 @@ inherited ViewPessoasBuscar: TViewPessoasBuscar
   inherited pnTopo: TPanel
     Width = 750
     StyleElements = [seFont, seClient, seBorder]
+    ExplicitWidth = 750
     inherited Label1: TLabel
       StyleElements = [seFont, seClient, seBorder]
     end
     inherited edtBuscar: TEdit
       Width = 710
       StyleElements = [seFont, seClient, seBorder]
+      ExplicitWidth = 710
     end
   end
   inherited pnGrid: TPanel
     Width = 750
     StyleElements = [seFont, seClient, seBorder]
+    ExplicitWidth = 750
     inherited DBGrid: TDBGrid
       Width = 748
       Columns = <
@@ -92,6 +95,7 @@ inherited ViewPessoasBuscar: TViewPessoasBuscar
   inherited pnRodape: TPanel
     Width = 750
     StyleElements = [seFont, seClient, seBorder]
+    ExplicitWidth = 750
     inherited rdGroupFiltros: TRadioGroup
       Width = 446
       Columns = 3
@@ -100,26 +104,33 @@ inherited ViewPessoasBuscar: TViewPessoasBuscar
         'C'#243'digo (F1)'
         'Nome/Fantasia (F2)'
         'Cidade (F3)')
+      ExplicitWidth = 446
     end
     inherited btnFechar: TBitBtn
       Left = 674
+      ExplicitLeft = 674
     end
     inherited btnCadastrar: TBitBtn
       Left = 446
+      ExplicitLeft = 446
     end
     inherited btnSelecionar: TBitBtn
       Left = 598
+      ExplicitLeft = 598
     end
     inherited btnAlterar: TBitBtn
       Left = 522
+      ExplicitLeft = 522
     end
   end
   inherited pnTotal: TPanel
     Width = 750
     StyleElements = [seFont, seClient, seBorder]
+    ExplicitWidth = 750
     inherited lblTotal: TLabel
       Left = 586
       StyleElements = [seFont, seClient, seBorder]
+      ExplicitLeft = 586
     end
   end
   inherited DataSource: TDataSource

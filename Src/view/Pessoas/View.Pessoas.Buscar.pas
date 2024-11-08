@@ -46,7 +46,7 @@ begin
   inherited;
 end;
 
-procedure TViewPessoasBuscar.ChamarTelaCadastrar(const ACodigo: Integer);
+procedure TViewPessoasBuscar.ChamarTelaCadastrar(const ACodigo: Integer = 0);
 begin
   inherited;
 

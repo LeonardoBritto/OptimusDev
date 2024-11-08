@@ -2,6 +2,7 @@ object ModelCidadesDM: TModelCidadesDM
   Height = 106
   Width = 248
   object QCidadesCadastro: TFDQuery
+    BeforePost = QCidadesCadastroBeforePost
     Connection = ModelConexaoDM.FDConnection
     SQL.Strings = (
       'select * from cidades')
@@ -28,6 +29,7 @@ object ModelCidadesDM: TModelCidadesDM
       Size = 2
     end
     object QCidadesCadastroCODIGO_IBGE: TIntegerField
+      Alignment = taLeftJustify
       DisplayLabel = 'C'#243'digo IBGE'
       FieldName = 'CODIGO_IBGE'
       Origin = 'CODIGO_IBGE'

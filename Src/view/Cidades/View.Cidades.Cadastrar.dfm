@@ -12,8 +12,6 @@ inherited ViewCidadesCadastrar: TViewCidadesCadastrar
     Width = 474
     Height = 268
     StyleElements = [seFont, seClient, seBorder]
-    ExplicitLeft = 0
-    ExplicitTop = 0
     ExplicitWidth = 474
     ExplicitHeight = 268
     object Label1: TLabel
