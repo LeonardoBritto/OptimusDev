@@ -3,7 +3,6 @@ inherited ViewCidadesCadastrar: TViewCidadesCadastrar
   ClientHeight = 303
   ClientWidth = 474
   StyleElements = [seFont, seClient, seBorder]
-  OnCreate = FormCreate
   OnShow = FormShow
   ExplicitWidth = 490
   ExplicitHeight = 342

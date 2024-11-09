@@ -167,6 +167,7 @@
             <Form>ViewPessoasBuscar</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Src\Exceptions\Exceptions.FieldName.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

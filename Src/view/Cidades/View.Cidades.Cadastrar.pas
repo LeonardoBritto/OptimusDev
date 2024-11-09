@@ -29,9 +29,20 @@ implementation
 
 {$R *.dfm}
 
+uses
+  Exceptions.FieldName;
+
 procedure TViewCidadesCadastrar.btnGravarClick(Sender: TObject);
 begin
-  DataSource.DataSet.Post;
+  try
+    DataSource.DataSet.Post;
+  except
+    on E: ExceptionsFieldName do
+    begin
+      ShowMessage('Erro: ' + E.Message + sLineBreak + 'FieldName: ' + E.FieldName);
+      Exit;
+    end;
+  end;
   inherited;
 end;
 

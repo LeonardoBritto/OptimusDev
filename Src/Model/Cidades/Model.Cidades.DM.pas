@@ -22,7 +22,6 @@ type
     QCidadesBuscaCODIGO_IBGE: TIntegerField;
     procedure QCidadesCadastroBeforePost(DataSet: TDataSet);
   private
-    { Private declarations }
   public
     procedure ValidarDados;
     procedure CidadesBuscar(const ACondicao: string);
@@ -38,9 +37,8 @@ implementation
 
 {$R *.dfm}
 
-{ TModelCidadesDM }
-
-
+uses
+  Exceptions.FieldName;
 
 procedure TModelCidadesDM.CadastrarGet(const ACodCidade: Integer);
 begin
@@ -61,8 +59,6 @@ begin
   QCidadesBusca.Open;
 end;
 
-
-
 procedure TModelCidadesDM.QCidadesCadastroBeforePost(DataSet: TDataSet);
 begin
   Self.ValidarDados;
@@ -71,15 +67,15 @@ end;
 procedure TModelCidadesDM.ValidarDados;
 begin
   if (QCidadesCadastroNOME.AsString.Trim.IsEmpty) then
-    raise Exception.Create('Preencha o campo nome!');
+    raise ExceptionsFieldName.Create('Preencha o campo nome!', 'NOME');
 
   if (QCidadesCadastroUF.AsString.Trim.IsEmpty) then
-    raise Exception.Create('Preencha o campo UF!');
+    raise ExceptionsFieldName.Create('Preencha o campo UF!', 'UF');
 
   if (QCidadesCadastroCODIGO.AsInteger > 0) then
   begin
     if (Length(QCidadesCadastroCODIGO_IBGE.AsString) <> 7) then
-      raise Exception.Create('Código do IBGE deve conter 7 caracteres!');
+      raise ExceptionsFieldName.Create('Código do IBGE deve conter 7 caracteres!', 'CODIGO_IBGE');
   end;
 end;
 
