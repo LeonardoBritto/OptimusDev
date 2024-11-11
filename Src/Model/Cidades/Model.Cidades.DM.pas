@@ -74,7 +74,7 @@ begin
 
   if (QCidadesCadastroCODIGO.AsInteger > 0) then
   begin
-    if (Length(QCidadesCadastroCODIGO_IBGE.AsString) <> 7) then
+    if (QCidadesCadastroCODIGO_IBGE.AsString.Length <> 7) then
       raise ExceptionsFieldName.Create('Código do IBGE deve conter 7 caracteres!', 'CODIGO_IBGE');
   end;
 end;

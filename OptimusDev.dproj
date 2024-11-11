@@ -168,6 +168,8 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Src\Exceptions\Exceptions.FieldName.pas"/>
+        <DCCReference Include="Src\RTTI\RTTI.FieldName.pas"/>
+        <DCCReference Include="Src\Utils\Utils.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
