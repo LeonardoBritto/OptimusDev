@@ -8,12 +8,14 @@ uses
   System.Rtti,
   Vcl.Forms,
   Vcl.Controls,
+  Vcl.ComCtrls,
   Exceptions.FieldName,
   Rtti.FieldName;
 
 type
   TUtils = class
   private
+    class procedure SetFocusComponent(const AWinControl: TWinControl);
   public
     class procedure TratarExceptionsFieldName(const AForm: TForm;
       const E: ExceptionsFieldName);
@@ -54,11 +56,30 @@ begin
       if not(LComponent is TWinControl) then
         Continue;
 
-      TWinControl(LComponent).SetFocus;
+      Self.SetFocusComponent(TWinControl(LComponent));
     end;
   end;
 
   raise Exception.Create(E.Message);
+end;
+
+class procedure TUtils.SetFocusComponent(const AWinControl: TWinControl);
+var
+  LParent: TComponent;
+begin
+  LParent := AWinControl.Parent;
+
+  while (LParent <> nil) and (LParent.ClassParent <> TForm) do
+  begin
+    if (LParent is TTabSheet) then
+      if (not TTabSheet(LParent).Showing) then
+        TTabSheet(LParent).Show;
+
+    LParent := TWinControl(LParent).Parent;
+  end;
+
+  if (AWinControl.CanFocus) then
+    AWinControl.SetFocus;
 end;
 
 end.
