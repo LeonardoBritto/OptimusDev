@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Buttons,
-  Data.DB, Vcl.Grids, Vcl.DBGrids, Vcl.Menus;
+  Data.DB, Vcl.Grids, Vcl.DBGrids, Vcl.Menus, FireDAC.Comp.Client;
 
 type
   TViewHerancasBuscar = class(TForm)
@@ -44,12 +44,14 @@ type
     procedure Atualizar1Click(Sender: TObject);
     procedure Excluir1Click(Sender: TObject);
     procedure btnCadastrarClick(Sender: TObject);
+    procedure DBGridTitleClick(Column: TColumn);
   private
+    FUltCod: Integer;
   protected
     procedure BuscarDados; virtual;
     procedure ChamarTelaCadastrar(const ACodigo: Integer = 0); virtual; abstract;
   public
-    { Public declarations }
+    property UltCod: Integer write FUltCod;
   end;
 
 var
@@ -69,11 +71,16 @@ begin
   if DataSource.DataSet.IsEmpty then
     raise Exception.Create('Selecione um registro!');
 
+  FUltCod := DataSource.DataSet.FieldByName('codigo').AsInteger;
   Self.ChamarTelaCadastrar(DataSource.DataSet.FieldByName('codigo').AsInteger);
 end;
 
 procedure TViewHerancasBuscar.btnCadastrarClick(Sender: TObject);
 begin
+  FUltCod := 0;
+  if (not DataSource.DataSet.IsEmpty) then
+    FUltCod := DataSource.DataSet.FieldByName('codigo').AsInteger;
+
   Self.ChamarTelaCadastrar;
 end;
 
@@ -99,6 +106,9 @@ begin
     Exit;
 
   lblTotal.Caption := 'Registros localizados: ' + FormatFloat('000000', DataSource.DataSet.RecordCount);
+
+  if (FUltCod > 0) then
+    DataSource.DataSet.Locate('codigo', FUltCod, []);
 end;
 
 procedure TViewHerancasBuscar.DBGridDblClick(Sender: TObject);
@@ -119,6 +129,25 @@ procedure TViewHerancasBuscar.DBGridKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 then
     btnSelecionar.Click;
+end;
+
+procedure TViewHerancasBuscar.DBGridTitleClick(Column: TColumn);
+var
+  LCampo: string;
+  LOrdem: string;
+begin
+  if (DataSource.DataSet.IsEmpty) then
+    Exit;
+
+  LCampo := Column.FieldName.Trim;
+  if (LCampo.IsEmpty)  or (Column.Field.FieldKind = fkCalculated) then
+    Exit;
+
+  LOrdem := LCampo + ':D;CODIGO';
+  if (TFDQuery(DataSource.DataSet).IndexFieldNames.Contains(':D')) then
+    LOrdem := LCampo;
+
+  TFDQuery(DataSource.DataSet).IndexFieldNames := LOrdem;
 end;
 
 procedure TViewHerancasBuscar.edtBuscarChange(Sender: TObject);

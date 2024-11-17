@@ -9,6 +9,7 @@ object ModelCidadesDM: TModelCidadesDM
     Left = 48
     Top = 24
     object QCidadesCadastroCODIGO: TIntegerField
+      AutoGenerateValue = arDefault
       DisplayLabel = 'C'#243'digo'
       FieldName = 'CODIGO'
       Origin = 'CODIGO'
@@ -37,6 +38,8 @@ object ModelCidadesDM: TModelCidadesDM
   end
   object QCidadesBusca: TFDQuery
     Connection = ModelConexaoDM.FDConnection
+    FetchOptions.AssignedValues = [evMode]
+    FetchOptions.Mode = fmAll
     SQL.Strings = (
       'select * from cidades')
     Left = 168

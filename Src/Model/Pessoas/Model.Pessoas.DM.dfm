@@ -121,6 +121,8 @@ object ModelPessoasDM: TModelPessoasDM
   end
   object QPessoasBusca: TFDQuery
     Connection = ModelConexaoDM.FDConnection
+    FetchOptions.AssignedValues = [evMode]
+    FetchOptions.Mode = fmAll
     SQL.Strings = (
       'select '
       'p.codigo, '

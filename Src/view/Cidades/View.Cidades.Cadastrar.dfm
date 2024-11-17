@@ -89,7 +89,7 @@ inherited ViewCidadesCadastrar: TViewCidadesCadastrar
       Height = 23
       DataField = 'CODIGO_IBGE'
       DataSource = DataSource
-      TabOrder = 2
+      TabOrder = 3
     end
     object cBoxUF: TDBComboBox
       Left = 16
@@ -127,7 +127,7 @@ inherited ViewCidadesCadastrar: TViewCidadesCadastrar
         'SP'
         'SE'
         'TO')
-      TabOrder = 3
+      TabOrder = 2
     end
   end
   inherited pnRodape: TPanel
@@ -139,6 +139,7 @@ inherited ViewCidadesCadastrar: TViewCidadesCadastrar
     inherited btnGravar: TBitBtn
       Left = 273
       ExplicitLeft = 273
+      ExplicitTop = 1
     end
     inherited btnCancelar: TBitBtn
       Left = 373

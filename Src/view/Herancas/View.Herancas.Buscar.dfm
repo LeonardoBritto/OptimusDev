@@ -74,6 +74,7 @@ object ViewHerancasBuscar: TViewHerancasBuscar
       OnDrawColumnCell = DBGridDrawColumnCell
       OnDblClick = DBGridDblClick
       OnKeyPress = DBGridKeyPress
+      OnTitleClick = DBGridTitleClick
     end
   end
   object pnRodape: TPanel

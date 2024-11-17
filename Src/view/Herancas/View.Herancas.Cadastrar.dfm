@@ -41,6 +41,7 @@ object ViewHerancasCadastrar: TViewHerancasCadastrar
       Caption = 'Gravar (F3)'
       TabOrder = 0
       OnClick = btnGravarClick
+      ExplicitTop = 6
     end
     object btnCancelar: TBitBtn
       Left = 549

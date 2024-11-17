@@ -5,12 +5,12 @@ interface
 uses
   System.SysUtils,
   System.Classes,
-  System.Rtti,
+  System.RTTI,
   Vcl.Forms,
   Vcl.Controls,
   Vcl.ComCtrls,
   Exceptions.FieldName,
-  Rtti.FieldName;
+  RTTI.FieldName;
 
 type
   TUtils = class
