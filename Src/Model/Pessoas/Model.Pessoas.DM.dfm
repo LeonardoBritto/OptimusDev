@@ -8,28 +8,34 @@ object ModelPessoasDM: TModelPessoasDM
     Left = 56
     Top = 32
     object QPessoasCadastroCODIGO: TIntegerField
+      AutoGenerateValue = arDefault
+      DisplayLabel = 'C'#243'digo'
       FieldName = 'CODIGO'
       Origin = 'CODIGO'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
+      ReadOnly = True
     end
     object QPessoasCadastroNOME: TStringField
+      DisplayLabel = 'Nome/Raz'#227'o'
       FieldName = 'NOME'
       Origin = 'NOME'
       Size = 60
     end
     object QPessoasCadastroFANTASIA: TStringField
+      DisplayLabel = 'Fantasia'
       FieldName = 'FANTASIA'
       Origin = 'FANTASIA'
       Size = 60
     end
     object QPessoasCadastroCLIENTE: TStringField
+      DisplayLabel = 'Cliente'
       FieldName = 'CLIENTE'
       Origin = 'CLIENTE'
       FixedChar = True
       Size = 1
     end
     object QPessoasCadastroFORNECEDOR: TStringField
+      DisplayLabel = 'Fornecedor'
       FieldName = 'FORNECEDOR'
       Origin = 'FORNECEDOR'
       FixedChar = True
@@ -42,43 +48,52 @@ object ModelPessoasDM: TModelPessoasDM
       Size = 9
     end
     object QPessoasCadastroCOD_CIDADE: TIntegerField
+      DisplayLabel = 'C'#243'digo Cidade'
       FieldName = 'COD_CIDADE'
       Origin = 'COD_CIDADE'
     end
     object QPessoasCadastroENDERECO: TStringField
+      DisplayLabel = 'Endere'#231'o'
       FieldName = 'ENDERECO'
       Origin = 'ENDERECO'
       Size = 60
     end
     object QPessoasCadastroNUMERO: TStringField
+      DisplayLabel = 'N'#250'mero'
       FieldName = 'NUMERO'
       Origin = 'NUMERO'
       Size = 10
     end
     object QPessoasCadastroBAIRRO: TStringField
+      DisplayLabel = 'Bairro'
       FieldName = 'BAIRRO'
       Origin = 'BAIRRO'
     end
     object QPessoasCadastroCOMPLEMENTO: TStringField
+      DisplayLabel = 'Complemento'
       FieldName = 'COMPLEMENTO'
       Origin = 'COMPLEMENTO'
     end
     object QPessoasCadastroTELEFONE: TStringField
+      DisplayLabel = 'Telefone'
       FieldName = 'TELEFONE'
       Origin = 'TELEFONE'
       Size = 15
     end
     object QPessoasCadastroCELULAR: TStringField
+      DisplayLabel = 'Celular'
       FieldName = 'CELULAR'
       Origin = 'CELULAR'
       Size = 15
     end
     object QPessoasCadastroEMAIL: TStringField
+      DisplayLabel = 'E-mail'
       FieldName = 'EMAIL'
       Origin = 'EMAIL'
       Size = 50
     end
     object QPessoasCadastroTIPO_JURIDICO: TIntegerField
+      DisplayLabel = 'Tipo Jur'#237'dico'
       FieldName = 'TIPO_JURIDICO'
       Origin = 'TIPO_JURIDICO'
     end
@@ -105,16 +120,19 @@ object ModelPessoasDM: TModelPessoasDM
       Size = 14
     end
     object QPessoasCadastroATIVO: TStringField
+      DisplayLabel = 'Ativo'
       FieldName = 'ATIVO'
       Origin = 'ATIVO'
       FixedChar = True
       Size = 1
     end
     object QPessoasCadastroDT_NASCIMENTO: TDateField
+      DisplayLabel = 'Nascimento'
       FieldName = 'DT_NASCIMENTO'
       Origin = 'DT_NASCIMENTO'
     end
     object QPessoasCadastroDT_CADASTRO: TSQLTimeStampField
+      DisplayLabel = 'Cadastro'
       FieldName = 'DT_CADASTRO'
       Origin = 'DT_CADASTRO'
     end

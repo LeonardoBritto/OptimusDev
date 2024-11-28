@@ -5,7 +5,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, View.Herancas.Buscar, Data.DB,
-  Vcl.Menus, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls, Vcl.Grids, Vcl.DBGrids, Model.Pessoas.DM;
+  Vcl.Menus, Vcl.StdCtrls, Vcl.Buttons, Vcl.ExtCtrls, Vcl.Grids, Vcl.DBGrids, Model.Pessoas.DM,
+  View.Pessoas.Cadastrar;
 
 type
   TViewPessoasBuscar = class(TViewHerancasBuscar)
@@ -47,9 +48,21 @@ begin
 end;
 
 procedure TViewPessoasBuscar.ChamarTelaCadastrar(const ACodigo: Integer = 0);
+var
+  LViewPessoasCadastrar: TViewPessoasCadastrar;
 begin
   inherited;
-
+  LViewPessoasCadastrar := TViewPessoasCadastrar.Create(nil);
+  try
+    LViewPessoasCadastrar.CodRegistroAlterar := ACodigo;
+    if (LViewPessoasCadastrar.ShowModal = mrOk) then
+    begin
+      inherited UltCod := LViewPessoasCadastrar.UltCod;
+      Self.BuscarDados;
+    end;
+  finally
+    LViewPessoasCadastrar.Free;
+  end;
 end;
 
 procedure TViewPessoasBuscar.FormCreate(Sender: TObject);

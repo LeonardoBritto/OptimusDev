@@ -60,7 +60,7 @@ begin
   else
     DataSource.DataSet.Edit;
 
-    edtNome.SetFocus;
+  edtNome.SetFocus;
 end;
 
 end.
